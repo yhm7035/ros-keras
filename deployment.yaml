@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ros-keras
+  labels:
+    app: ros-keras
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ros-keras
+  template:
+    metadata:
+      labels:
+        app: ros-keras
+    spec:
+      containers:
+      - image: yhm7035/ros-keras
+        imagePullPolicy: Always
+        name: ros-keras
+        resources:
+          limits:
+            nvidia.com/gpu: 1
