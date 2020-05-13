@@ -16,7 +16,7 @@ from keras.applications.resnet50 import ResNet50, preprocess_input, decode_predi
 # https://github.com/fchollet/keras/issues/2397
 model = ResNet50(weights='imagenet')
 model._make_predict_function()
-graph = tf.get_default_graph()
+graph = tf.compat.v1.get_default_graph()
 target_size = (224, 224)
 
 rospy.init_node('classify', anonymous=True)
