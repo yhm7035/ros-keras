@@ -49,4 +49,5 @@ ADD ./src/classify.py .
 RUN chmod +x classify.py
 
 WORKDIR /
+RUN nohup roscore &
 CMD tail -f /dev/null
